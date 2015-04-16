@@ -29,23 +29,23 @@ for ($i = 0; $i < $E; $i++)
     $tabE[] = $EI;
 }
 
+foreach($tabLT as $key => $value){
+    $tabValue = explode(" ", $value);
+    
+    for($p=0; $p<count($tabE); $p++){
+        if(in_array($tabE[$p], $tabValue)){
+            $tabL[] = $value;
+        }
+    }
+}
+
 // game loop
 while (TRUE)
 {
     fscanf(STDIN, "%d",
         $SI // The index of the node on which the Skynet agent is positioned this turn
     );
-    
-    foreach($tabLT as $key => $value){
-        $tabValue = explode(" ", $value);
-        
-        for($p=0; $p<count($tabE); $p++){
-            if(in_array($tabE[$p], $tabValue)){
-                $tabL[] = $value;
-            }
-        }
-    }
-    
+
     $keyToDel = 0;
     
     foreach($tabL as $key => $value){
@@ -58,6 +58,6 @@ while (TRUE)
     
     echo($tabL[$keyToDel]."\n");
     unset($tabL[$keyToDel]);
-    $tabL = array_values($tabL);
+    $tabL = array_values($tabL);error_log(var_export($tabL, true));
 }
 ?>
