@@ -58,6 +58,6 @@ while (TRUE)
     
     echo($tabL[$keyToDel]."\n");
     unset($tabL[$keyToDel]);
-    $tabL = array_values($tabL);error_log(var_export($tabL, true));
+    $tabL = array_values($tabL);
 }
 ?>
